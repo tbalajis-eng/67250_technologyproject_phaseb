@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Your name">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse – Membership & Donations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js" defer></script>
+</head>
+<body onload="addYear()">
+  <div class="container">
+
+    <header class="header">
+      <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+    </header>
+
+    <nav class="nav_bar">
+      <button id="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">&#9776;</button>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="buytickets.html">Buy Tickets</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="membership.html">Membership</a>
+    </nav>
+
+    <main class="main">
+      <h1>Membership &amp; Donations</h1>
+      <p>Support MonoMuse and enjoy exclusive benefits all year long. Your membership helps us bring world-class exhibitions and programming to our community.</p>
+
+      <h3>Membership Tiers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Annual Cost</th>
+            <th>Benefits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Individual</td>
+            <td>$75/yr</td>
+            <td>Unlimited general admission, 10% gift shop discount</td>
+          </tr>
+          <tr>
+            <td>Family</td>
+            <td>$130/yr</td>
+            <td>Unlimited admission for up to 4, 15% discount, guest passes</td>
+          </tr>
+          <tr>
+            <td>Patron</td>
+            <td>$250/yr</td>
+            <td>All Family benefits + private previews, curator events, recognition</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Make a Donation</h3>
+      <p>Every contribution, no matter the size, helps MonoMuse continue its mission of making art and technology accessible to all.</p>
+
+      <form id="donationForm">
+        <label for="donorName">Your Name *</label>
+        <input type="text" id="donorName" placeholder="Full name" required>
+
+        <label for="donorEmail">Email Address *</label>
+        <input type="email" id="donorEmail" placeholder="you@example.com" required>
+
+        <label for="donationAmt">Donation Amount ($) *</label>
+        <input type="number" id="donationAmt" placeholder="25" min="1" required>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="donorMailingList" name="donorMailingList">
+          <label for="donorMailingList" class="checkbox-label">Keep me updated on MonoMuse news and events</label>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="alert('Thank you for your donation! A receipt will be sent to your email.')">Donate Now</button>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+
+  </div>
+</body>
+</html>

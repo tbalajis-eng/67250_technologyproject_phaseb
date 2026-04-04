@@ -1,0 +1,699 @@
+/* ============================================================
+   MonoMuse - style.css
+   Increment 4: CSS Grid, Flexbox, jQuery, Active Nav, Interactivity
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&family=Playfair+Display:wght@400;700&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+  --bg:        #0b0b0c;
+  --bg-card:   #141416;
+  --text:      #f5f5f7;
+  --text-muted:rgba(245,245,247,.60);
+  --accent:    #92ad70;
+  --accent-dk: #4d5c3b;
+  --border:    rgba(245,245,247,.10);
+  --table-alt: #1a1a1d;
+  --radius:    12px;
+}
+
+/* ============================================================
+   GLOBAL RESET
+   ============================================================ */
+* {
+  padding:             5px;
+  margin:              5px;
+  box-sizing:          border-box;
+  background:          var(--bg);
+  color:               var(--text);
+  font-family:         'Roboto', Helvetica, Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-weight:         100;
+  line-height:         1.6;
+  font-style:          normal;
+}
+
+body {
+  margin:  0;
+  padding: 0;
+}
+
+/* ============================================================
+   CSS GRID LAYOUT — main container
+   ============================================================ */
+.container {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'nav_bar nav_bar'
+    'main main-img'
+    'footer footer';
+  min-height: 100vh;
+}
+
+.header  { grid-area: header;  }
+.nav_bar { grid-area: nav_bar; }
+.main    { grid-area: main;    }
+.main_img{ grid-area: main-img;}
+.footer  { grid-area: footer;  }
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+#logo {
+  width:      18%;
+  display:    block;
+  background: transparent;
+  padding:    16px 16px 4px;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+  border-bottom: 1px solid var(--border);
+  padding:       0 16px 8px;
+  background:    var(--bg);
+}
+
+/* ============================================================
+   NAVIGATION — Flexbox, right-aligned
+   ============================================================ */
+.nav_bar {
+  grid-area:       nav_bar;
+  display:         flex;
+  justify-content: right;
+  flex-wrap:       wrap;
+  gap:             4px;
+  padding:         8px 16px;
+  background:      var(--bg);
+  border-bottom:   1px solid var(--border);
+}
+
+.nav_bar a {
+  text-decoration: none;
+  color:           var(--text);
+  font-weight:     400;
+  font-size:       0.9rem;
+  padding:         8px 14px;
+  border:          1px solid transparent;
+  border-radius:   var(--radius);
+  background:      transparent;
+  transition:      border-color 0.2s ease, color 0.2s ease;
+  letter-spacing:  0.02em;
+}
+
+.nav_bar a:hover {
+  border-color: var(--accent-dk);
+  color:        var(--accent);
+}
+
+/* Active nav — set dynamically by JS (replaces hard-coded #navselected) */
+.active {
+  color: var(--accent) !important;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.main {
+  max-width:  860px;
+  margin:     40px auto;
+  padding:    24px 32px;
+  background: var(--bg-card);
+  border:     1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: transparent;
+}
+h1 { font-size: 2.4rem; margin-bottom: 12px; }
+h2 { font-size: 1.7rem; margin-bottom: 10px; }
+h3 { font-size: 1.2rem; margin-bottom: 6px; color: var(--accent); }
+
+p  { color: var(--text-muted); font-weight: 300; font-size: 0.97rem; background: transparent; }
+ul { background: transparent; padding-left: 20px; }
+li { background: transparent; color: var(--text-muted); font-weight: 300; margin-bottom: 4px; }
+
+/* ============================================================
+   READ MORE / READ LESS  (jQuery toggle — index.html)
+   ============================================================ */
+#longIntro {
+  display: none;   /* hidden by default */
+  color:   var(--text-muted);
+  font-weight: 300;
+  font-size: 0.97rem;
+  background: transparent;
+  margin-top: 10px;
+}
+
+#readLess {
+  display: none;   /* hidden by default */
+}
+
+#readMore, #readLess {
+  background:      transparent;
+  border:          1px solid var(--accent-dk);
+  color:           var(--accent);
+  padding:         6px 16px;
+  border-radius:   var(--radius);
+  cursor:          pointer;
+  font-size:       0.85rem;
+  font-weight:     400;
+  margin-top:      10px;
+  transition:      background 0.2s ease;
+}
+
+#readMore:hover, #readLess:hover {
+  background: var(--accent-dk);
+  color:      var(--text);
+}
+
+/* ============================================================
+   CTA BUTTON
+   ============================================================ */
+a.cta, .cta-btn {
+  display:         inline-block;
+  margin-top:      20px;
+  padding:         12px 28px;
+  background:      var(--accent);
+  color:           #0b0b0c;
+  font-weight:     700;
+  font-size:       0.95rem;
+  border:          none;
+  border-radius:   var(--radius);
+  text-decoration: none;
+  letter-spacing:  0.04em;
+  cursor:          pointer;
+  transition:      background 0.2s ease, transform 0.15s ease;
+}
+
+a.cta:hover, .cta-btn:hover {
+  background:   var(--accent-dk);
+  color:        var(--text);
+  transform:    translateY(-1px);
+  border-color: transparent;
+}
+
+/* ============================================================
+   IMAGES
+   ============================================================ */
+img:not(#logo) {
+  width:         100%;
+  max-width:     540px;
+  height:        auto;
+  border-radius: var(--radius);
+  display:       block;
+  margin:        16px 0;
+  background:    transparent;
+  border:        1px solid var(--border);
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+table {
+  width:           100%;
+  border-collapse: collapse;
+  margin-top:      16px;
+  background:      transparent;
+}
+thead    { background: var(--accent-dk); }
+th {
+  padding:        12px 16px;
+  text-align:     left;
+  font-weight:    700;
+  font-size:      0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width:          fit-content;
+  color:          var(--text);
+  background:     var(--accent-dk);
+}
+td {
+  padding:       12px 16px;
+  font-size:     0.93rem;
+  color:         var(--text-muted);
+  background:    transparent;
+  border-bottom: 1px solid var(--border);
+}
+tr:nth-child(even) td { background: var(--table-alt); }
+tr:hover td { background: rgba(146,173,112,.07); color: var(--text); }
+
+/* ============================================================
+   BUY TICKETS PAGE — hidden purchase form, revealed by JS
+   ============================================================ */
+#purchaseForm {
+  display:       none;   /* hidden until Buy Now clicked */
+  margin-top:    28px;
+  padding:       24px;
+  background:    var(--bg-card);
+  border:        1px solid var(--accent-dk);
+  border-radius: var(--radius);
+}
+
+#purchaseForm h3 {
+  margin-top: 0;
+}
+
+/* ============================================================
+   FORM
+   ============================================================ */
+form { background: transparent; }
+form * { margin: auto; text-align: center; }
+
+form label {
+  display:     block;
+  margin-top:  18px;
+  font-weight: 400;
+  font-size:   0.9rem;
+  color:       var(--text-muted);
+  background:  transparent;
+  text-align:  left;
+  max-width:   360px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="date"],
+form select {
+  display:       block;
+  width:         100%;
+  max-width:     360px;
+  margin:        6px auto;
+  padding:       10px 14px;
+  background:    #1e1e21;
+  color:         var(--text);
+  border:        1px solid var(--border);
+  border-radius: 8px;
+  font-size:     0.93rem;
+  font-family:   'Roboto', sans-serif;
+  transition:    border-color 0.2s ease;
+}
+
+form input:focus, form select:focus {
+  outline:      none;
+  border-color: var(--accent);
+}
+
+form input[type="submit"], .submit-btn {
+  display:        block;
+  margin:         28px auto 0;
+  padding:        12px 36px;
+  background:     var(--accent);
+  color:          #0b0b0c;
+  font-weight:    700;
+  font-size:      0.95rem;
+  border:         none;
+  border-radius:  var(--radius);
+  cursor:         pointer;
+  letter-spacing: 0.04em;
+  transition:     background 0.2s ease, transform 0.15s ease;
+}
+
+form input[type="submit"]:hover, .submit-btn:hover {
+  background: var(--accent-dk);
+  color:      var(--text);
+  transform:  translateY(-1px);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  border-top:  1px solid var(--border);
+  padding:     18px 16px;
+  text-align:  center;
+  color:       var(--text-muted);
+  font-size:   0.82rem;
+  margin-top:  40px;
+  background:  var(--bg);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  #logo         { width: 48%; }
+  .main         { padding: 16px; margin: 16px; }
+  h1            { font-size: 1.8rem; }
+  .nav_bar      { justify-content: flex-start; }
+  .container    {
+    grid-template-areas:
+      'header'
+      'nav_bar'
+      'main'
+      'footer';
+  }
+}
+
+
+/* ============================================================
+   INCREMENT 5: RESPONSIVE WEB DESIGN
+   ============================================================ */
+
+/* Hamburger icon — hidden by default on desktop */
+#hamburger {
+  display:     none;
+  background:  transparent;
+  border:      1px solid var(--accent-dk);
+  color:       var(--accent);
+  font-size:   1.4rem;
+  padding:     6px 12px;
+  border-radius: var(--radius);
+  cursor:      pointer;
+  line-height: 1;
+}
+
+#hamburger:hover {
+  background: var(--accent-dk);
+  color:      var(--text);
+}
+
+/* Mobile layout — screens 650px and under */
+@media only screen and (max-width: 650px) {
+
+  /* Switch grid to single column */
+  .container {
+    grid-template-areas:
+      'header'
+      'nav_bar'
+      'main'
+      'footer';
+    grid-template-columns: 1fr;
+  }
+
+  /* Logo larger on mobile */
+  #logo { width: 55%; }
+
+  /* Stack nav vertically, hide links by default */
+  .nav_bar {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:     flex-start;
+    padding:         8px 16px;
+    gap:             0;
+  }
+
+  /* Hide all nav links on mobile — JS toggles .responsive to show them */
+  .nav_bar a {
+    display: none;
+    width:   100%;
+    padding: 10px 8px;
+    border:  none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+  }
+
+  /* Keep the first nav link (Home) always visible so user isn't stranded */
+  .nav_bar a:first-child {
+    display: block;
+  }
+
+  /* When .responsive is toggled by JS, show all nav links */
+  .nav_bar.responsive a {
+    display: block;
+  }
+
+  /* Show hamburger icon on mobile */
+  #hamburger {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* Main content full width */
+  .main {
+    margin:  12px;
+    padding: 16px;
+  }
+
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+
+  /* Full-width tables on mobile */
+  table { font-size: 0.82rem; }
+  th, td { padding: 8px 10px; }
+
+  /* iframe video responsive */
+  .video-wrapper iframe {
+    width:  100%;
+    height: 220px;
+  }
+}
+
+/* ============================================================
+   INCREMENT 5: VIDEO EMBED
+   ============================================================ */
+.video-wrapper {
+  margin:        28px 0;
+  background:    transparent;
+  border-radius: var(--radius);
+  overflow:      hidden;
+  border:        1px solid var(--border);
+}
+
+.video-wrapper iframe {
+  width:         100%;
+  height:        420px;
+  display:       block;
+  border:        none;
+  background:    #000;
+}
+
+/* ============================================================
+   INCREMENT 5: LEAFLET MAP
+   ============================================================ */
+#map {
+  width:         100%;
+  height:        400px;
+  border-radius: var(--radius);
+  border:        1px solid var(--border);
+  margin-top:    20px;
+  background:    #1a1a1d;  /* fallback before tiles load */
+}
+
+
+/* ============================================================
+   FINAL PROJECT: Additional Styles
+   ============================================================ */
+
+/* --- Field errors --- */
+.field-error {
+  display:     block;
+  color:       #e05050;
+  font-size:   0.82rem;
+  margin-top:  3px;
+  background:  transparent;
+  min-height:  1rem;
+}
+
+/* --- Error summary box --- */
+.error-box {
+  background:    rgba(224, 80, 80, 0.1);
+  border:        1px solid rgba(224, 80, 80, 0.4);
+  border-radius: var(--radius);
+  padding:       14px 18px;
+  margin-bottom: 20px;
+  color:         #e05050;
+  font-size:     0.9rem;
+}
+
+.error-box ul {
+  margin-top:  8px;
+  padding-left: 18px;
+}
+
+.error-box li {
+  color:      #e05050;
+  font-size:  0.88rem;
+  margin-bottom: 3px;
+}
+
+/* --- Price display --- */
+.price-display {
+  background:    rgba(146, 173, 112, 0.12);
+  border:        1px solid var(--accent-dk);
+  border-radius: var(--radius);
+  padding:       12px 18px;
+  margin:        16px auto;
+  max-width:     360px;
+  text-align:    center;
+  font-size:     1.1rem;
+  font-weight:   400;
+  color:         var(--text);
+}
+
+.price-display span {
+  font-weight: 700;
+  color:       var(--accent);
+  font-size:   1.3rem;
+  background:  transparent;
+}
+
+/* --- Checkbox row --- */
+.checkbox-row {
+  display:     flex;
+  align-items: flex-start;
+  gap:         10px;
+  max-width:   360px;
+  margin:      18px auto 0;
+  background:  transparent;
+}
+
+.checkbox-row input[type="checkbox"] {
+  margin-top:  3px;
+  width:       16px;
+  min-width:   16px;
+  height:      16px;
+  cursor:      pointer;
+  background:  transparent;
+  accent-color: var(--accent);
+}
+
+.checkbox-label {
+  font-size:   0.88rem;
+  color:       var(--text-muted);
+  text-align:  left;
+  cursor:      pointer;
+  background:  transparent;
+  font-weight: 300;
+  line-height: 1.5;
+  margin:      0;
+  max-width:   unset;
+}
+
+/* --- Confirmation page --- */
+.confirm-icon {
+  width:         56px;
+  height:        56px;
+  border-radius: 50%;
+  background:    var(--accent);
+  color:         #0b0b0c;
+  font-size:     1.8rem;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  margin:        0 auto 16px;
+  font-weight:   700;
+}
+
+.confirm-card {
+  background:    var(--bg);
+  border:        1px solid var(--accent-dk);
+  border-radius: var(--radius);
+  padding:       20px 24px;
+  margin:        24px 0;
+}
+
+.confirm-table {
+  width:       100%;
+  margin-top:  12px;
+}
+
+.confirm-table td {
+  padding:       8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size:     0.93rem;
+}
+
+.confirm-table td:first-child {
+  color:      var(--text-muted);
+  width:      40%;
+  background: transparent;
+}
+
+.confirm-table td:last-child {
+  font-weight: 400;
+  background:  transparent;
+}
+
+.total-row td {
+  font-weight: 700 !important;
+  color:       var(--accent) !important;
+  font-size:   1.05rem !important;
+  border-bottom: none !important;
+}
+
+/* --- Image Gallery --- */
+.gallery-wrapper {
+  display:       flex;
+  align-items:   center;
+  gap:           12px;
+  margin:        16px 0 8px;
+  background:    transparent;
+}
+
+.gallery-track {
+  flex:          1;
+  position:      relative;
+  overflow:      hidden;
+  border-radius: var(--radius);
+  background:    #111;
+  min-height:    220px;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+}
+
+.gallery-img {
+  width:         100%;
+  max-height:    340px;
+  object-fit:    cover;
+  border-radius: var(--radius);
+  display:       none;
+  border:        none;
+  margin:        0;
+}
+
+.gallery-img.active {
+  display: block;
+}
+
+.gallery-btn {
+  background:    transparent;
+  border:        1px solid var(--accent-dk);
+  color:         var(--accent);
+  width:         38px;
+  height:        38px;
+  border-radius: 50%;
+  font-size:     1.1rem;
+  cursor:        pointer;
+  transition:    background 0.2s;
+  flex-shrink:   0;
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+}
+
+.gallery-btn:hover {
+  background: var(--accent-dk);
+  color:      var(--text);
+}
+
+.gallery-dots {
+  display:         flex;
+  justify-content: center;
+  gap:             8px;
+  margin-bottom:   20px;
+  background:      transparent;
+}
+
+.dot {
+  width:         8px;
+  height:        8px;
+  border-radius: 50%;
+  background:    var(--border);
+  cursor:        pointer;
+  transition:    background 0.2s;
+  border:        1px solid var(--accent-dk);
+}
+
+.dot.active {
+  background: var(--accent);
+}

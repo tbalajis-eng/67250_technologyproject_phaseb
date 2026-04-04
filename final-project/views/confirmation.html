@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Your name">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse – Order Confirmed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js" defer></script>
+</head>
+<body onload="addYear(); loadConfirmation();">
+  <div class="container">
+
+    <header class="header">
+      <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+    </header>
+
+    <nav class="nav_bar">
+      <button id="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">&#9776;</button>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="buytickets.html">Buy Tickets</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="membership.html">Membership</a>
+    </nav>
+
+    <main class="main">
+      <div class="confirm-icon">&#10003;</div>
+      <h1>Order Confirmed!</h1>
+      <p>Thank you for your purchase. Your tickets have been reserved and a confirmation has been sent to your email.</p>
+
+      <div class="confirm-card" id="confirmCard">
+        <h3>Order Summary</h3>
+        <table class="confirm-table">
+          <tr><td>Name</td><td id="conf-name">—</td></tr>
+          <tr><td>Visit Date</td><td id="conf-date">—</td></tr>
+          <tr><td>Ticket Type</td><td id="conf-type">—</td></tr>
+          <tr><td>Quantity</td><td id="conf-qty">—</td></tr>
+          <tr><td>Email</td><td id="conf-email">—</td></tr>
+          <tr class="total-row"><td>Total</td><td id="conf-total">—</td></tr>
+        </table>
+      </div>
+
+      <p style="margin-top:20px;">We look forward to seeing you at MonoMuse. Please bring a copy of this confirmation or show it on your phone at the entrance.</p>
+      <a href="../index.html" class="cta">Back to Home</a>
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+
+  </div>
+</body>
+</html>
