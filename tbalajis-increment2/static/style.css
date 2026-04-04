@@ -1,0 +1,314 @@
+/* ============================================================
+   MonoMuse - style.css
+   Increment 2: CSS Visual Design
+   ============================================================ */
+
+/* --- Google Font Import (also linked via <link> in HTML) --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&family=Playfair+Display:wght@400;700&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+  --bg:        #0b0b0c;
+  --bg-card:   #141416;
+  --text:      #f5f5f7;
+  --text-muted:rgba(245,245,247,.60);
+  --accent:    #92ad70;
+  --accent-dk: #4d5c3b;
+  --border:    rgba(245,245,247,.10);
+  --table-alt: #1a1a1d;
+  --radius:    12px;
+}
+
+/* ============================================================
+   GLOBAL RESET  (universal selector)
+   ============================================================ */
+* {
+  padding:               5px;
+  margin:                5px;
+  box-sizing:            border-box;
+  background:            var(--bg);
+  color:                 var(--text);
+  font-family:           'Roboto', Helvetica, Arial, sans-serif;
+  font-optical-sizing:   auto;
+  font-weight:           100;
+  line-height:           1.6;
+  font-style:            normal;
+}
+
+/* Fine-tune: body itself shouldn't have stray 5px margin */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+#logo {
+  width: 18%;
+  display: block;
+  background: transparent;
+  padding: 16px 16px 4px;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px 8px;
+  background: var(--bg);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px 16px;
+  background: var(--bg);
+}
+
+nav a {
+  text-decoration:  none;
+  color:            var(--text);
+  font-weight:      400;
+  font-size:        0.9rem;
+  padding:          8px 14px;
+  border:           1px solid transparent;
+  border-radius:    var(--radius);
+  background:       transparent;
+  transition:       border-color 0.2s ease, color 0.2s ease;
+  letter-spacing:   0.02em;
+}
+
+nav a:hover {
+  border-color: var(--accent-dk);
+  color: var(--accent);
+}
+
+/* Active / current page highlight */
+#navselected {
+  color: var(--accent);
+}
+
+/* ============================================================
+   MAIN CONTENT AREA
+   ============================================================ */
+.main {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 24px 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: transparent;
+}
+
+h1 { font-size: 2.4rem; margin-bottom: 12px; }
+h2 { font-size: 1.7rem; margin-bottom: 10px; }
+h3 { font-size: 1.2rem; margin-bottom: 6px;  color: var(--accent); }
+
+p {
+  color: var(--text-muted);
+  font-weight: 300;
+  font-size: 0.97rem;
+  background: transparent;
+}
+
+ul {
+  background: transparent;
+  padding-left: 20px;
+}
+
+li {
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+
+/* ============================================================
+   CTA BUTTON  (Buy Tickets)
+   ============================================================ */
+a.cta, .cta {
+  display:          inline-block;
+  margin-top:       20px;
+  padding:          12px 28px;
+  background:       var(--accent);
+  color:            #0b0b0c;
+  font-weight:      700;
+  font-size:        0.95rem;
+  border:           none;
+  border-radius:    var(--radius);
+  text-decoration:  none;
+  letter-spacing:   0.04em;
+  cursor:           pointer;
+  transition:       background 0.2s ease, transform 0.15s ease;
+}
+
+a.cta:hover, .cta:hover {
+  background:   var(--accent-dk);
+  color:        var(--text);
+  transform:    translateY(-1px);
+  border-color: transparent;
+}
+
+/* ============================================================
+   IMAGES (Explore page museum photo)
+   ============================================================ */
+img:not(#logo) {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+  margin: 16px 0;
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+/* ============================================================
+   TABLE  (Tickets page)
+   ============================================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background: transparent;
+}
+
+thead {
+  background: var(--accent-dk);
+}
+
+th {
+  padding-top:    12px;
+  padding-bottom: 12px;
+  padding-left:   16px;
+  padding-right:  16px;
+  text-align:     left;
+  font-weight:    700;
+  font-size:      0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width:          fit-content;
+  color:          var(--text);
+  background:     var(--accent-dk);
+}
+
+td {
+  padding:      12px 16px;
+  font-size:    0.93rem;
+  color:        var(--text-muted);
+  background:   transparent;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Zebra striping */
+tr:nth-child(even) td {
+  background: var(--table-alt);
+}
+
+tr:hover td {
+  background: rgba(146,173,112,.07);
+  color: var(--text);
+}
+
+/* ============================================================
+   FORM  (Checkout page)
+   ============================================================ */
+form {
+  background: transparent;
+}
+
+form * {
+  margin: auto;
+  text-align: center;
+}
+
+form label {
+  display:     block;
+  margin-top:  18px;
+  font-weight: 400;
+  font-size:   0.9rem;
+  color:       var(--text-muted);
+  background:  transparent;
+  text-align:  left;
+  max-width:   360px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"] {
+  display:          block;
+  width:            100%;
+  max-width:        360px;
+  margin:           6px auto;
+  padding:          10px 14px;
+  background:       #1e1e21;
+  color:            var(--text);
+  border:           1px solid var(--border);
+  border-radius:    8px;
+  font-size:        0.93rem;
+  font-family:      'Roboto', sans-serif;
+  transition:       border-color 0.2s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="number"]:focus {
+  outline:      none;
+  border-color: var(--accent);
+}
+
+form input[type="submit"] {
+  display:        block;
+  margin:         28px auto 0;
+  padding:        12px 36px;
+  background:     var(--accent);
+  color:          #0b0b0c;
+  font-weight:    700;
+  font-size:      0.95rem;
+  border:         none;
+  border-radius:  var(--radius);
+  cursor:         pointer;
+  letter-spacing: 0.04em;
+  transition:     background 0.2s ease, transform 0.15s ease;
+}
+
+form input[type="submit"]:hover {
+  background:  var(--accent-dk);
+  color:       var(--text);
+  transform:   translateY(-1px);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top:  1px solid var(--border);
+  padding:     18px 16px;
+  text-align:  center;
+  color:       var(--text-muted);
+  font-size:   0.82rem;
+  margin-top:  40px;
+  background:  var(--bg);
+}
+
+/* ============================================================
+   RESPONSIVE  (basic mobile)
+   ============================================================ */
+@media (max-width: 640px) {
+  #logo { width: 48%; }
+  .main { padding: 16px; margin: 16px; }
+  h1    { font-size: 1.8rem; }
+}

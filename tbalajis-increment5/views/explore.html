@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Your name">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse – Explore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS — required for the map to render correctly -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link rel="stylesheet" href="../static/style.css">
+
+  <!-- Leaflet JS — must load before script.js so L is defined -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../static/script.js" defer></script>
+</head>
+<body onload="addYear()">
+  <div class="container">
+
+    <header class="header">
+      <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+    </header>
+
+    <nav class="nav_bar">
+      <button id="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">&#9776;</button>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="buytickets.html">Buy Tickets</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+
+    <main class="main">
+      <h1>Explore</h1>
+
+      <img src="../static/images/MuseumPic.jpg" alt="Exterior view of the MonoMuse Museum building at dusk">
+
+      <h3>Mission Statement</h3>
+      <p>MonoMuse is dedicated to exploring the evolving relationship between art, technology, and society. Our mission is to inspire curiosity and creativity by showcasing innovative exhibitions that highlight how digital tools, emerging technologies, and human imagination shape the future of artistic expression.</p>
+
+      <h3>Who We Serve</h3>
+      <p>MonoMuse welcomes visitors of all backgrounds — first-time guests, students, researchers, and returning members. We design our experiences to be inclusive, interactive, and inspiring for everyone.</p>
+
+      <h3>Founded</h3>
+      <p>MonoMuse opened its doors in 2016 with a pioneering exhibition on digital storytelling.</p>
+
+      <h3>Milestones</h3>
+      <ul>
+        <li>2016 — MonoMuse opens with its first exhibition on digital storytelling.</li>
+        <li>2018 — Launch of the Interactive Media Lab, allowing visitors to experiment with creative coding.</li>
+        <li>2023 — Expansion of the museum space and launch of international artist collaborations.</li>
+      </ul>
+
+      <!-- ================================================
+           INCREMENT 5: Embedded YouTube Video
+           Museum-related art & technology video
+           Source: YouTube — embedded via Share > Embed
+           ================================================ -->
+      <h3>Featured: Art Meets Technology</h3>
+      <p>Watch how contemporary museums are using technology to transform the visitor experience.</p>
+      <div class="video-wrapper">
+        <!-- Video: "The Art of the Museum" — museum & digital art topic -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-BYHn5Vum_A?si=14NuoHdFu1vGzOFX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- ================================================
+           INCREMENT 5: Leaflet Map (OpenStreetMap API)
+           Shows MonoMuse location with a marker + popup
+           Library: Leaflet.js v1.9.4 — https://leafletjs.com
+           Tiles: OpenStreetMap contributors
+           ================================================ -->
+      <h3>Find Us</h3>
+      <p>MonoMuse is located at 123 Art Avenue, Pittsburgh, PA 15213. Open Tuesday – Sunday, 10:00 AM – 6:00 PM.</p>
+      <div id="map"></div>
+
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+
+  </div>
+</body>
+</html>

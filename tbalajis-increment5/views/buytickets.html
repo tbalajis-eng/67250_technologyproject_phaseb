@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Your name">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse – Buy Tickets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js" defer></script>
+</head>
+<body onload="addYear()">
+  <div class="container">
+
+    <header class="header">
+      <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+    </header>
+
+    <nav class="nav_bar">
+      <button id="hamburger" onclick="toggleNav()" aria-label="Toggle navigation">&#9776;</button>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="buytickets.html">Buy Tickets</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+
+    <main class="main">
+      <h1>Buy Tickets</h1>
+      <p>Choose an available date below and click <strong>Buy Now</strong> to begin your purchase.</p>
+
+      <!-- Ticket pricing table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Ticket Type</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Adult</td>
+            <td>General admission, ages 18+</td>
+            <td>$18</td>
+          </tr>
+          <tr>
+            <td>Student</td>
+            <td>Valid student ID required</td>
+            <td>$10</td>
+          </tr>
+          <tr>
+            <td>Member</td>
+            <td>Member ID required</td>
+            <td>$15</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Monthly schedule table with Buy Now buttons -->
+      <h3>April 2026 — Available Dates</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Day</th>
+            <th>Hours</th>
+            <th>Availability</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>April 5, 2026</td>
+            <td>Sunday</td>
+            <td>10:00 AM – 5:00 PM</td>
+            <td>Available</td>
+            <td><button class="cta-btn" onclick="showForm(this)" data-date="2026-04-05">Buy Now</button></td>
+          </tr>
+          <tr>
+            <td>April 11, 2026</td>
+            <td>Saturday</td>
+            <td>10:00 AM – 5:00 PM</td>
+            <td>Available</td>
+            <td><button class="cta-btn" onclick="showForm(this)" data-date="2026-04-11">Buy Now</button></td>
+          </tr>
+          <tr>
+            <td>April 12, 2026</td>
+            <td>Sunday</td>
+            <td>12:00 PM – 6:00 PM</td>
+            <td>Available</td>
+            <td><button class="cta-btn" onclick="showForm(this)" data-date="2026-04-12">Buy Now</button></td>
+          </tr>
+          <tr>
+            <td>April 18, 2026</td>
+            <td>Saturday</td>
+            <td>10:00 AM – 5:00 PM</td>
+            <td>Limited</td>
+            <td><button class="cta-btn" onclick="showForm(this)" data-date="2026-04-18">Buy Now</button></td>
+          </tr>
+          <tr>
+            <td>April 25, 2026</td>
+            <td>Saturday</td>
+            <td>10:00 AM – 5:00 PM</td>
+            <td>Available</td>
+            <td><button class="cta-btn" onclick="showForm(this)" data-date="2026-04-25">Buy Now</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Purchase form — hidden by default, revealed when Buy Now is clicked -->
+      <div id="purchaseForm">
+        <h3>Complete Your Purchase</h3>
+        <form>
+          <label for="visitorName">Name: (required)</label>
+          <input type="text" id="visitorName" name="visitorName" placeholder="Full name" required>
+
+          <label for="visitorEmail">Email: (required)</label>
+          <input type="email" id="visitorEmail" name="visitorEmail" placeholder="you@example.com" required>
+
+          <label for="visitDate">Visit Date: (required)</label>
+          <input type="date" id="visitDate" name="visitDate" required>
+
+          <label for="ticketType">Ticket Type: (required)</label>
+          <select id="ticketType" name="ticketType" required>
+            <option value="">-- Select --</option>
+            <option value="adult">Adult — $18</option>
+            <option value="student">Student — $10</option>
+            <option value="member">Member — $15</option>
+          </select>
+
+          <label for="ticketQty">Number of Tickets: (required)</label>
+          <input type="number" id="ticketQty" name="ticketQty" min="1" max="10" placeholder="1" required>
+
+          <br>
+          <button type="button" class="submit-btn" onclick="handlePurchase()">Place Order</button>
+        </form>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+
+  </div>
+</body>
+</html>
