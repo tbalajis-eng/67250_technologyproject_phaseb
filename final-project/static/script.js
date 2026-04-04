@@ -269,21 +269,3 @@ function updateGallery() {
   });
 }
 
-function nextSlide() {
-  var imgs = document.querySelectorAll('.gallery-img');
-  if (!imgs.length) return;
-  currentSlide = (currentSlide + 1) % imgs.length;
-  updateGallery();
-}
-
-function prevSlide() {
-  var imgs = document.querySelectorAll('.gallery-img');
-  if (!imgs.length) return;
-  currentSlide = (currentSlide - 1 + imgs.length) % imgs.length;
-  updateGallery();
-}
-
-function goToSlide(n) {
-  currentSlide = n;
-  updateGallery();
-}

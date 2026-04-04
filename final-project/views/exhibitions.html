@@ -40,20 +40,69 @@
            JS controls: prevSlide() / nextSlide()
            ================================================ -->
       <h3>Gallery</h3>
-      <div class="gallery-wrapper">
-        <button class="gallery-btn" onclick="prevSlide()" aria-label="Previous image">&#8592;</button>
-        <div class="gallery-track" id="galleryTrack">
-          <img class="gallery-img active" src="../static/images/gallery1.jpg" alt="Digital Dreams exhibition — glowing algorithmic art installation">
-          <img class="gallery-img" src="../static/images/gallery2.jpg" alt="Code and Canvas exhibition — interactive projection wall">
-          <img class="gallery-img" src="../static/images/gallery3.jpg" alt="Nature Reimagined exhibition — sensor-driven light installation">
+
+      <!-- Gallery: self-contained with inline styles to avoid global CSS conflicts -->
+      <div style="display:flex; align-items:center; gap:12px; margin:16px 0 8px; background:transparent;">
+
+        <button onclick="prevSlide()" aria-label="Previous image"
+          style="background:transparent; border:1px solid #4d5c3b; color:#92ad70; width:38px; height:38px;
+                 border-radius:50%; font-size:1.1rem; cursor:pointer; flex-shrink:0; display:flex;
+                 align-items:center; justify-content:center;">&#8592;</button>
+
+        <div id="galleryTrack"
+          style="flex:1; border-radius:12px; overflow:hidden; background:#111; min-height:240px;">
+          <img id="gSlide0" src="../static/images/gallery1.jpg"
+               alt="Digital Dreams exhibition — glowing algorithmic art installation"
+               style="width:100%; max-height:340px; object-fit:cover; display:block; border:none; margin:0; padding:0; border-radius:0; background:#111;">
+          <img id="gSlide1" src="../static/images/gallery2.jpg"
+               alt="Code and Canvas exhibition — interactive projection wall"
+               style="width:100%; max-height:340px; object-fit:cover; display:none; border:none; margin:0; padding:0; border-radius:0; background:#111;">
+          <img id="gSlide2" src="../static/images/gallery3.jpg"
+               alt="Nature Reimagined exhibition — sensor-driven light installation"
+               style="width:100%; max-height:340px; object-fit:cover; display:none; border:none; margin:0; padding:0; border-radius:0; background:#111;">
         </div>
-        <button class="gallery-btn" onclick="nextSlide()" aria-label="Next image">&#8594;</button>
+
+        <button onclick="nextSlide()" aria-label="Next image"
+          style="background:transparent; border:1px solid #4d5c3b; color:#92ad70; width:38px; height:38px;
+                 border-radius:50%; font-size:1.1rem; cursor:pointer; flex-shrink:0; display:flex;
+                 align-items:center; justify-content:center;">&#8594;</button>
+
       </div>
-      <div class="gallery-dots" id="galleryDots">
-        <span class="dot active" onclick="goToSlide(0)"></span>
-        <span class="dot" onclick="goToSlide(1)"></span>
-        <span class="dot" onclick="goToSlide(2)"></span>
+
+      <!-- Dots -->
+      <div style="display:flex; justify-content:center; gap:8px; margin-bottom:20px; background:transparent;">
+        <span id="gDot0" onclick="goToSlide(0)"
+          style="width:10px; height:10px; border-radius:50%; background:#92ad70; cursor:pointer; display:inline-block;"></span>
+        <span id="gDot1" onclick="goToSlide(1)"
+          style="width:10px; height:10px; border-radius:50%; background:#4d5c3b; cursor:pointer; display:inline-block;"></span>
+        <span id="gDot2" onclick="goToSlide(2)"
+          style="width:10px; height:10px; border-radius:50%; background:#4d5c3b; cursor:pointer; display:inline-block;"></span>
       </div>
+
+      <script>
+        // Self-contained gallery script — runs immediately, no dependency on script.js
+        var gCurrent = 0;
+        var gTotal = 3;
+
+        function goToSlide(n) {
+          // hide all slides and reset dots
+          for (var i = 0; i < gTotal; i++) {
+            document.getElementById('gSlide' + i).style.display = 'none';
+            document.getElementById('gDot' + i).style.background = '#4d5c3b';
+          }
+          gCurrent = n;
+          document.getElementById('gSlide' + gCurrent).style.display = 'block';
+          document.getElementById('gDot' + gCurrent).style.background = '#92ad70';
+        }
+
+        function nextSlide() {
+          goToSlide((gCurrent + 1) % gTotal);
+        }
+
+        function prevSlide() {
+          goToSlide((gCurrent - 1 + gTotal) % gTotal);
+        }
+      </script>
 
       <h3>Exhibition 1: Digital Dreams — Art in the Age of Algorithms</h3>
       <p>This exhibition explores how artists are using algorithms, artificial intelligence, and generative tools to create new forms of digital expression. Through interactive displays and dynamic visuals, visitors can see how machines and human creativity work together to produce art that evolves in real time.</p>
