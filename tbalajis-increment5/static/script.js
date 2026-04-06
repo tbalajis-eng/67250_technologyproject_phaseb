@@ -158,9 +158,9 @@ function initMap() {
   var mapEl = document.getElementById('map');
   if (!mapEl) return;
 
-  // MonoMuse fictional location — Pittsburgh, PA
-  var lat  = 40.4406;
-  var lng  = -79.9959;
+  // Crystal Bridges Location location — Bentonville, Arkansas
+  var lat  = 36.37;
+  var lng  = -94.21;
   var zoom = 15;
 
   var map = L.map('map').setView([lat, lng], zoom);
@@ -173,7 +173,7 @@ function initMap() {
   // Museum marker with popup
   L.marker([lat, lng])
     .addTo(map)
-    .bindPopup('<strong>MonoMuse</strong><br>123 Art Avenue, Pittsburgh PA 15213')
+    .bindPopup('<strong>MonoMuse</strong><br>600 Museum Way, Bentonville, AR 72712')
     .openPopup();
 }
 

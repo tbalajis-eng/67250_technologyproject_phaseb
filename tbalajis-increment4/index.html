@@ -7,11 +7,13 @@
   <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
   <meta name="description" content="MonoMuse website redesign project">
   <title>MonoMuse</title>
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <!-- Site stylesheet -->
   <link rel="stylesheet" href="./static/style.css">
-  <!-- jQuery (only needed on this page for Read More toggle) -->
+  <!-- needed on this page for Read More -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="./static/script.js" defer></script>
 </head>
@@ -20,6 +22,7 @@
   <div class="container">
 
     <header class="header">
+      <!-- Logo replaces the old h1 -->
       <img id="logo" src="./static/monomuselogo.png" alt="MonoMuse Museum Logo">
     </header>
 
@@ -42,7 +45,7 @@
         is transforming the way we create, experience, and understand art.
       </p>
 
-      <!-- Long intro — hidden by default, revealed by jQuery -->
+      <!-- read more -->
       <p id="longIntro">
         Whether you are a first-time visitor or a returning member, our exhibitions offer new
         perspectives on the role of technology in culture and everyday life. Plan your visit to
@@ -55,6 +58,7 @@
       <button id="readLess">Read Less</button>
 
       <br>
+      <!-- Styled Button -->
       <a href="views/buytickets.html" class="cta">Buy Tickets</a>
     </main>
 

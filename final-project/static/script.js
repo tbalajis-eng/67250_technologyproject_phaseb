@@ -1,9 +1,3 @@
-/* ============================================================
-   MonoMuse - script.js
-   Final Project: All increment functionality + final additions
-   ============================================================ */
-
-
 /* ------------------------------------------------------------
    INC 3: Console Practice
    ------------------------------------------------------------ */
@@ -92,19 +86,18 @@ function toggleNav() {
   navbar.classList.toggle('responsive');
 }
 
-
 /* ------------------------------------------------------------
    INC 5: Leaflet Map
    ------------------------------------------------------------ */
 function initMap() {
   var mapEl = document.getElementById('map');
   if (!mapEl) return;
-  var map = L.map('map').setView([40.4406, -79.9959], 15);
+  var map = L.map('map').setView([36.37, -94.21], 15);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
-  L.marker([40.4406, -79.9959]).addTo(map)
-    .bindPopup('<strong>MonoMuse</strong><br>123 Art Avenue, Pittsburgh PA 15213')
+  L.marker([36.37, -94.21]).addTo(map)
+    .bindPopup('<strong>MonoMuse</strong><br>600 Museum Way, Bentonville, AR 72712')
     .openPopup();
 }
 initMap();

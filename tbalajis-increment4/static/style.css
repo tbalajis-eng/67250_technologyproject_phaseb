@@ -1,6 +1,5 @@
 /* ============================================================
    MonoMuse - style.css
-   Increment 4: CSS Grid, Flexbox, jQuery, Active Nav, Interactivity
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&family=Playfair+Display:wght@400;700&display=swap');
@@ -40,7 +39,7 @@ body {
 }
 
 /* ============================================================
-   CSS GRID LAYOUT — main container
+   CSS GRID LAYOUT
    ============================================================ */
 .container {
   display: grid;
@@ -78,7 +77,7 @@ body {
 }
 
 /* ============================================================
-   NAVIGATION — Flexbox, right-aligned
+   Flexbox, right-aligned
    ============================================================ */
 .nav_bar {
   grid-area:       nav_bar;
@@ -141,7 +140,7 @@ ul { background: transparent; padding-left: 20px; }
 li { background: transparent; color: var(--text-muted); font-weight: 300; margin-bottom: 4px; }
 
 /* ============================================================
-   READ MORE / READ LESS  (jQuery toggle — index.html)
+   READ MORE / READ LESS  (jQuery)
    ============================================================ */
 #longIntro {
   display: none;   /* hidden by default */
@@ -246,7 +245,7 @@ tr:nth-child(even) td { background: var(--table-alt); }
 tr:hover td { background: rgba(146,173,112,.07); color: var(--text); }
 
 /* ============================================================
-   BUY TICKETS PAGE — hidden purchase form, revealed by JS
+   BUY TICKETS PAGE
    ============================================================ */
 #purchaseForm {
   display:       none;   /* hidden until Buy Now clicked */

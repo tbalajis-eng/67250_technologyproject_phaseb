@@ -35,13 +35,11 @@
       <h1>Exhibitions</h1>
 
       <!-- ================================================
-           Interactive Image Gallery (min 3 images)
-           Uses images from static/images/ folder
-           JS controls: prevSlide() / nextSlide()
+           Image Slideshow
            ================================================ -->
       <h3>Gallery</h3>
 
-      <!-- Gallery: self-contained with inline styles to avoid global CSS conflicts -->
+      <!-- inline styles to avoid global CSS conflicts -->
       <div style="display:flex; align-items:center; gap:12px; margin:16px 0 8px; background:transparent;">
 
         <button onclick="prevSlide()" aria-label="Previous image"
@@ -69,7 +67,7 @@
 
       </div>
 
-      <!-- Dots -->
+      <!-- under pic dots -->
       <div style="display:flex; justify-content:center; gap:8px; margin-bottom:20px; background:transparent;">
         <span id="gDot0" onclick="goToSlide(0)"
           style="width:10px; height:10px; border-radius:50%; background:#92ad70; cursor:pointer; display:inline-block;"></span>
@@ -80,7 +78,7 @@
       </div>
 
       <script>
-        // Self-contained gallery script — runs immediately, no dependency on script.js
+        //slideshow script
         var gCurrent = 0;
         var gTotal = 3;
 
@@ -104,14 +102,14 @@
         }
       </script>
 
-      <h3>Exhibition 1: Digital Dreams — Art in the Age of Algorithms</h3>
-      <p>This exhibition explores how artists are using algorithms, artificial intelligence, and generative tools to create new forms of digital expression. Through interactive displays and dynamic visuals, visitors can see how machines and human creativity work together to produce art that evolves in real time.</p>
+      <h3>Exhibition 1: Fall Offerings - Crystals in Art: Ancient to Today</h3>
+      <p>This exhibition explores the numerous ways that people use crystals in artwork to make profound statements and beautiful works. Crystals have been a pillar in artwork since the begining of man and this exhibition shows both the beauty and history of these crystals. </p>
 
-      <h3>Exhibition 2: Code &amp; Canvas — The Language of Creative Technology</h3>
-      <p>Code &amp; Canvas highlights the ways programming has become a medium for artistic creation. Featuring works by digital artists and designers, the exhibition showcases installations, projections, and interactive pieces that reveal how lines of code can transform into immersive visual experiences.</p>
+      <h3>Exhibition 2: Exquisite Creatures: Butterflies and Beatles</h3>
+      <p>Using the beauty of the natural wold, this exhibition is focused on using the natural world in order to make their artworks. Whether it be butterfly spirals or beatles laid out next to each other, come see how artists use the normal everyday creatures around you to create something magical!</p>
 
-      <h3>Exhibition 3: Nature Reimagined — Ecology Through a Digital Lens</h3>
-      <p>Nature Reimagined presents large-scale data visualizations and sensor-driven installations that translate environmental data — temperature, sound, light — into living, breathing works of art that shift with the world around us.</p>
+      <h3>Exhibition 3: Outdoor Architecture — The Giant Spider</h3>
+      <p> As one of the most popular installments in our Outdoor art selection, the Giant Spider represents a feat of Architecture that attracts numerous people from across the country to watch it and its childer welcome people to the great MonoMuse Museum.</p>
     </main>
 
     <footer class="footer">

@@ -1,6 +1,6 @@
 /* ============================================================
    MonoMuse - style.css
-   Increment 4: CSS Grid, Flexbox, jQuery, Active Nav, Interactivity
+   CSS Grid, Flexbox, jQuery, Active Nav, Interactivity
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&family=Playfair+Display:wght@400;700&display=swap');
@@ -40,7 +40,7 @@ body {
 }
 
 /* ============================================================
-   CSS GRID LAYOUT — main container
+   CSS GRID LAYOUT
    ============================================================ */
 .container {
   display: grid;
@@ -78,7 +78,7 @@ body {
 }
 
 /* ============================================================
-   NAVIGATION — Flexbox, right-aligned
+   Flexbox, right-aligned
    ============================================================ */
 .nav_bar {
   grid-area:       nav_bar;
@@ -109,7 +109,7 @@ body {
   color:        var(--accent);
 }
 
-/* Active nav — set dynamically by JS (replaces hard-coded #navselected) */
+/* Active nav */
 .active {
   color: var(--accent) !important;
 }
@@ -141,7 +141,7 @@ ul { background: transparent; padding-left: 20px; }
 li { background: transparent; color: var(--text-muted); font-weight: 300; margin-bottom: 4px; }
 
 /* ============================================================
-   READ MORE / READ LESS  (jQuery toggle — index.html)
+   READ MORE / READ LESS (jQuery)
    ============================================================ */
 #longIntro {
   display: none;   /* hidden by default */
@@ -246,7 +246,7 @@ tr:nth-child(even) td { background: var(--table-alt); }
 tr:hover td { background: rgba(146,173,112,.07); color: var(--text); }
 
 /* ============================================================
-   BUY TICKETS PAGE — hidden purchase form, revealed by JS
+   BUY TICKETS PAGE — hidden purchase form
    ============================================================ */
 #purchaseForm {
   display:       none;   /* hidden until Buy Now clicked */
@@ -355,10 +355,10 @@ form input[type="submit"]:hover, .submit-btn:hover {
 
 
 /* ============================================================
-   INCREMENT 5: RESPONSIVE WEB DESIGN
+   RESPONSIVE WEB DESIGN
    ============================================================ */
 
-/* Hamburger icon — hidden by default on desktop */
+/* Hamburger icon — mobile */
 #hamburger {
   display:     none;
   background:  transparent;
@@ -376,7 +376,7 @@ form input[type="submit"]:hover, .submit-btn:hover {
   color:      var(--text);
 }
 
-/* Mobile layout — screens 650px and under */
+/* Mobile layout — set conditions */
 @media only screen and (max-width: 650px) {
 
   /* Switch grid to single column */
@@ -392,7 +392,7 @@ form input[type="submit"]:hover, .submit-btn:hover {
   /* Logo larger on mobile */
   #logo { width: 55%; }
 
-  /* Stack nav vertically, hide links by default */
+  /* Stack nav vertically */
   .nav_bar {
     flex-direction: column;
     justify-content: flex-start;
@@ -401,7 +401,7 @@ form input[type="submit"]:hover, .submit-btn:hover {
     gap:             0;
   }
 
-  /* Hide all nav links on mobile — JS toggles .responsive to show them */
+  /* Hide all nav links on mobile */
   .nav_bar a {
     display: none;
     width:   100%;
@@ -436,7 +436,7 @@ form input[type="submit"]:hover, .submit-btn:hover {
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.4rem; }
 
-  /* Full-width tables on mobile */
+  /* tables on mobile */
   table { font-size: 0.82rem; }
   th, td { padding: 8px 10px; }
 
@@ -448,7 +448,7 @@ form input[type="submit"]:hover, .submit-btn:hover {
 }
 
 /* ============================================================
-   INCREMENT 5: VIDEO EMBED
+   VIDEO EMBED
    ============================================================ */
 .video-wrapper {
   margin:        28px 0;
@@ -467,7 +467,7 @@ form input[type="submit"]:hover, .submit-btn:hover {
 }
 
 /* ============================================================
-   INCREMENT 5: LEAFLET MAP
+   LEAFLET MAP
    ============================================================ */
 #map {
   width:         100%;
@@ -480,7 +480,7 @@ form input[type="submit"]:hover, .submit-btn:hover {
 
 
 /* ============================================================
-   FINAL PROJECT: Additional Styles
+   Additional Styles When Needed
    ============================================================ */
 
 /* --- Field errors --- */

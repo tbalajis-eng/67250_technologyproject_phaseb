@@ -11,12 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 
-  <!-- Leaflet CSS — required for the map to render correctly -->
+  <!-- required for the map to render correctly -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <link rel="stylesheet" href="../static/style.css">
 
-  <!-- Leaflet JS — must load before script.js so L is defined -->
+  <!-- must load before script.js so map is defined -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="../static/script.js" defer></script>
 </head>
@@ -40,7 +40,7 @@
 
     <main class="main">
       <h1>Explore</h1>
-
+      <!-- creates an image example -->
       <img src="../static/images/MuseumPic.jpg" alt="Exterior view of the MonoMuse Museum building at dusk">
 
       <h3>Mission Statement</h3>
@@ -60,25 +60,20 @@
       </ul>
 
       <!-- ================================================
-           INCREMENT 5: Embedded YouTube Video
-           Museum-related art & technology video
-           Source: YouTube — embedded via Share > Embed
+            Embedded YouTube Video
            ================================================ -->
-      <h3>Featured: Art Meets Technology</h3>
-      <p>Watch how contemporary museums are using technology to transform the visitor experience.</p>
+      <h3>Featured: Making the Art</h3>
+      <p>Watch how some of the biggest Printmaking Artworks are made.</p>
       <div class="video-wrapper">
         <!-- Video: "The Art of the Museum" — museum & digital art topic -->
         <iframe width="560" height="315" src="https://www.youtube.com/embed/-BYHn5Vum_A?si=14NuoHdFu1vGzOFX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
 
       <!-- ================================================
-           INCREMENT 5: Leaflet Map (OpenStreetMap API)
-           Shows MonoMuse location with a marker + popup
-           Library: Leaflet.js v1.9.4 — https://leafletjs.com
-           Tiles: OpenStreetMap contributors
+           Leaflet Map
            ================================================ -->
       <h3>Find Us</h3>
-      <p>MonoMuse is located at 123 Art Avenue, Pittsburgh, PA 15213. Open Tuesday – Sunday, 10:00 AM – 6:00 PM.</p>
+      <p>MonoMuse is located at 600 Museum Way, Bentonville, AR 72712. Open Tuesday – Sunday, 10:00 AM – 6:00 PM.</p>
       <div id="map"></div>
 
     </main>
